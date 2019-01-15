@@ -16,7 +16,8 @@ public class Result {
 	}
     @Override
     public String toString() {
-    	String output = String.format("Начальный массив - %1$s\nКонечный массив - %2$s\nВыполнено итераций - %3$s\nЦиклических итераций - %4$s\n",
+    	String output = String.format(
+    			"Начальный массив - %1$s \nКонечный массив - %2$s \nВыполнено итераций - %3$s \nЦиклических итераций - %4$s \n",
     			Arrays.toString(array),
     			Arrays.toString(resultArray),
     			loops,
