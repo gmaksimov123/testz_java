@@ -1,8 +1,8 @@
 package app.workers;
 
 import app.Result;
-import app.allocator.IAllocator;
+import app.allocators.ArrayAllocator;
 
-public interface IWorker {
-	Result Run(int[] array, IAllocator allocator);
+public interface ArrayWorker {
+	Result Run(int[] array, ArrayAllocator allocator);
 }

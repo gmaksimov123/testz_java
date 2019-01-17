@@ -1,5 +1,5 @@
-package app.allocator;
+package app.allocators;
 
-public interface IAllocator {
+public interface ArrayAllocator {
 	void Run(int[] array);
 }

@@ -5,15 +5,17 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import app.Result;
-import app.allocator.DefaultAllocator;
+import app.allocators.ArrayAllocator;
+import app.allocators.DefaultAllocator;
+import app.workers.ArrayWorker;
 import app.workers.DefaultWorker;
 
 public class DefaultWorkerTest {
 
 	@Test
 	public void testRun() {
-		DefaultWorker worker = new DefaultWorker();
-		DefaultAllocator allocator = new DefaultAllocator();
+		ArrayWorker worker = new DefaultWorker();
+		ArrayAllocator allocator = new DefaultAllocator();
 
         Result result = worker.Run(new int[] { 0, 2, 7, 0 }, allocator);
         
@@ -25,6 +27,10 @@ public class DefaultWorkerTest {
         assertEquals(7864, result.loops);
         assertEquals(1695, result.equalsLoops);
         
+
+        result = worker.Run(new int[] { 2000000000, 0 }, allocator);
+        assertEquals(32, result.loops);
+        assertEquals(2, result.equalsLoops);  
 	}
 
 }

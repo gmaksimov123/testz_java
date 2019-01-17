@@ -1,17 +1,19 @@
-package app.allocator;
+package app.allocators;
 
-public class DefaultAllocator implements IAllocator {
+public class DefaultAllocator implements ArrayAllocator {
 
 	@Override
     public void Run(int[] array)
     {
         int allocationIndex = this.FindMaxIndex(array);
-        int allocationValue = array[allocationIndex];
+        int allocationDiv = array[allocationIndex] / array.length;
+        int allocationValue = array[allocationIndex] % array.length;
         array[allocationIndex] = 0;
 
         int index = allocationIndex + 1;
         int lastIndex = array.length - 1;
-
+        
+        
         while (allocationValue > 0)
         {
             if (index > lastIndex)
@@ -21,6 +23,13 @@ public class DefaultAllocator implements IAllocator {
             array[index]++;
             allocationValue--;
             index++;
+        }
+        
+        if (allocationDiv > 0) {
+            for (int i = 0; i <= lastIndex; i++)
+            {
+            	array[i] += allocationDiv;
+            }
         }
     }
 

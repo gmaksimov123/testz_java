@@ -2,7 +2,7 @@ package app;
 
 import java.util.Scanner;
 
-import app.allocator.DefaultAllocator;
+import app.allocators.DefaultAllocator;
 import app.workers.DefaultWorker;
 
 public class Main {
@@ -16,6 +16,9 @@ public class Main {
         ShowResult(result);
 
         result = worker.Run(new int[] { 0, 5, 10, 0, 11, 14, 13, 4, 11, 8, 8, 7, 1, 4, 12, 11 }, allocator);
+        ShowResult(result);
+
+        result = worker.Run(new int[] { 2000000000, 0 }, allocator);
         ShowResult(result);
         
 	}
