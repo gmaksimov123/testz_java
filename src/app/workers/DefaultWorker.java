@@ -8,11 +8,10 @@ import app.Result;
 import app.allocators.ArrayAllocator;
 
 public class DefaultWorker implements ArrayWorker {
-	protected HashMap<String, Integer> results = new HashMap<String, Integer>();
-	
 	@Override
     public Result Run(int[] array, ArrayAllocator allocator)
     {
+		HashMap<String, Integer> results = new HashMap<String, Integer>();
         int[] defaultArray = Clone(array);
         int loops = 1;
         int equalsLoop = -1;
