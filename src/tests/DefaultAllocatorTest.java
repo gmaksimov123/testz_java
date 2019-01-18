@@ -13,7 +13,7 @@ public class DefaultAllocatorTest {
 	public void testRun() {
 		ArrayAllocator allocator = new DefaultAllocator();
 		int[] array = new int[] { 0, 2, 7, 0 };
-		allocator.Run(array);
+		allocator.run(array);
 		
 		assertArrayEquals(new int[] { 2, 4, 1, 2 }, array);
 	}

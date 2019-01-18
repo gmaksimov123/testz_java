@@ -9,46 +9,42 @@ import app.allocators.ArrayAllocator;
 
 public class DefaultWorker implements ArrayWorker {
 	@Override
-    public Result Run(int[] array, ArrayAllocator allocator)
+    public Result run(int[] array, ArrayAllocator allocator)
     {
 		HashMap<String, Integer> results = new HashMap<String, Integer>();
-        int[] defaultArray = Clone(array);
+        int[] defaultArray = cloneArray(array);
         int loops = 1;
         int equalsLoop = -1;
         String stringifiedArray = "";
         
-        allocator.Run(array);
+        allocator.run(array);
         
-        stringifiedArray = StringifyArray(array);
+        stringifiedArray = stringifyArray(array);
         while (equalsLoop == -1)
         {
             results.put(stringifiedArray, loops);
-            allocator.Run(array);
+            allocator.run(array);
             
-            stringifiedArray = StringifyArray(array);      
-            equalsLoop = FindEqualsIndex(results, stringifiedArray);
+            stringifiedArray = stringifyArray(array);      
+            equalsLoop = findEqualsIndex(results, stringifiedArray);
             
             loops++;
         }
         return new Result(defaultArray, array, loops, loops - equalsLoop);
     }
 
-    protected int[] Clone(int[] array)
+    protected int[] cloneArray(int[] array)
     {
         return array.clone();
     }
-    protected int FindEqualsIndex(ArrayList<String> list, String stringigyArray)
-    {
-        return list.indexOf(stringigyArray);
-    }
     
-    protected int FindEqualsIndex(HashMap<String, Integer> list, String stringigyArray)
+    protected int findEqualsIndex(HashMap<String, Integer> list, String stringigyArray)
     {
     	Integer index = list.get(stringigyArray);
         return  (index == null) ? -1 : index;
     }
 
-    protected String StringifyArray(int[] array)
+    protected String stringifyArray(int[] array)
     {
         return Arrays.toString(array);
     }

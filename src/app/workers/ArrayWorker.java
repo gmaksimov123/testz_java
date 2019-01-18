@@ -4,5 +4,5 @@ import app.Result;
 import app.allocators.ArrayAllocator;
 
 public interface ArrayWorker {
-	Result Run(int[] array, ArrayAllocator allocator);
+	Result run(int[] array, ArrayAllocator allocator);
 }

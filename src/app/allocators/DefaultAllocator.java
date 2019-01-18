@@ -3,9 +3,9 @@ package app.allocators;
 public class DefaultAllocator implements ArrayAllocator {
 
 	@Override
-    public void Run(int[] array)
+    public void run(int[] array)
     {
-        int allocationIndex = this.FindMaxIndex(array);
+        int allocationIndex = this.findMaxIndex(array);
         int allocationDiv = array[allocationIndex] / array.length;
         int allocationValue = array[allocationIndex] % array.length;
         array[allocationIndex] = 0;
@@ -33,7 +33,7 @@ public class DefaultAllocator implements ArrayAllocator {
         }
     }
 
-    protected int FindMaxIndex(int[] array)
+    protected int findMaxIndex(int[] array)
     {
         int maxIndex = 0;
         int lastIndex = array.length - 1;
