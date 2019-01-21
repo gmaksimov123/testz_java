@@ -14,7 +14,7 @@ public class DefaultAllocatorTest {
 		ArrayAllocator allocator = new DefaultAllocator();
 		int[] array = new int[] { 0, 2, 7, 0 };
 		allocator.run(array);
-		
+
 		assertArrayEquals(new int[] { 2, 4, 1, 2 }, array);
 	}
 
